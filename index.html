@@ -1,381 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zephyr Architecture</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat App - Login</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-  line-height: 1.6;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #6c63ff, #4facfe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-header {
-  min-height: 100vh;
-  padding: 25px 8%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background:
-    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80")
-    center/cover;
-}
+    .container {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      border-radius: 25px;
+      padding: 30px 25px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
 
-nav {
-  position: absolute;
-  top: 25px;
-  left: 8%;
-  right: 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .logo {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 15px;
+      background: #6c63ff;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 35px;
+    }
 
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 8px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-}
+    .subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 25px;
+    }
 
-.hero {
-  max-width: 750px;
-}
+    .tabs {
+      display: flex;
+      background: #f1f1f1;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 25px;
+    }
 
-.hero h1 {
-  font-size: clamp(45px, 8vw, 90px);
-  line-height: 1;
-  margin-bottom: 25px;
-}
+    .tabs button {
+      width: 50%;
+      border: none;
+      padding: 12px;
+      border-radius: 9px;
+      background: transparent;
+      cursor: pointer;
+      font-size: 15px;
+    }
 
-.hero p {
-  font-size: 20px;
-  max-width: 600px;
-  margin-bottom: 30px;
-}
+    .tabs button.active {
+      background: white;
+      color: #6c63ff;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
 
-.button {
-  display: inline-block;
-  padding: 14px 25px;
-  background: white;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .input-group {
+      margin-bottom: 16px;
+    }
 
-section {
-  padding: 80px 8%;
-}
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #444;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-section h2 {
-  font-size: 42px;
-  margin-bottom: 20px;
-}
+    input {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      outline: none;
+      font-size: 15px;
+    }
 
-.intro {
-  max-width: 750px;
-  color: #ccc;
-}
+    input:focus {
+      border-color: #6c63ff;
+    }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
+    .forgot {
+      text-align: right;
+      margin-bottom: 20px;
+    }
 
-.card {
-  background: #202020;
-  padding: 30px;
-  border-radius: 10px;
-}
+    .forgot a {
+      color: #6c63ff;
+      text-decoration: none;
+      font-size: 13px;
+    }
 
-.card h3 {
-  margin-bottom: 10px;
-  font-size: 24px;
-}
+    .main-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      background: #6c63ff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.card p {
-  color: #bbb;
-}
+    .main-btn:active {
+      transform: scale(0.98);
+    }
 
-.projects {
-  background: #181818;
-}
+    .or {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 22px 0;
+      color: #999;
+      font-size: 13px;
+    }
 
-.contact {
-  text-align: center;
-  background: #f2f2f2;
-  color: #111;
-}
+    .or::before,
+    .or::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
 
-.contact p {
-  margin: 15px 0 25px;
-}
+    .google-btn {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      background: white;
+      cursor: pointer;
+      font-size: 15px;
+    }
 
-footer {
-  padding: 25px;
-  text-align: center;
-  background: #080808;
-  color: #888;
-}
+    .terms {
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
 
-@media(max-width:700px) {
-  nav {
-    align-items: flex-start;
-  }
+    .signup-fields {
+      display: none;
+    }
 
-  nav div:last-child {
-    display: none;
-  }
-
-  section {
-    padding: 60px 7%;
-  }
-
-  section h2 {
-    font-size: 34px
-/* Image viewer */
-.gallery-img {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery-img:hover {
-  opacity: 0.8;
-}
-
-#imageViewer {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-}
-
-#imageViewer img {
-  max-width: 95%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-#closeViewer {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: white;
-  font-size: 45px;
-  cursor: pointer;
-}
-</style></head>
+    @media (max-width: 420px) {
+      .container {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
 
 <body>
 
-<header>
-  <nav>
-    <div class="logo">ZEPHYR</div>
-    <div>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <div class="container">
 
-  <div class="hero">
-    <p>ARCHITECTURE • DESIGN • SPACE</p>
-    <h1>Designing spaces that feel like home.</h1>
-    <p>
-      Zephyr Architecture creates modern, functional and beautiful
-      spaces designed around the way people live.
+    <div class="logo">💬</div>
+
+    <h1>Welcome</h1>
+    <p class="subtitle">Connect and chat with your friends</p>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="showLogin()">Login</button>
+      <button id="signupTab" onclick="showSignup()">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="loginForm">
+
+      <div class="input-group">
+        <label>Email or Username</label>
+        <input type="text" placeholder="Enter your email or username" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter your password" required>
+      </div>
+
+      <div class="forgot">
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="main-btn">
+        Login
+      </button>
+
+    </form>
+
+    <!-- SIGN UP -->
+    <form id="signupForm" class="signup-fields">
+
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" placeholder="Choose a username" required>
+      </div>
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Create a password" required>
+      </div>
+
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm your password" required>
+      </div>
+
+      <button type="submit" class="main-btn">
+        Create Account
+      </button>
+
+    </form>
+
+    <div class="or">
+      OR
+    </div>
+
+    <button class="google-btn">
+      Continue with Google
+    </button>
+
+    <p class="terms">
+      By continuing, you agree to our Terms of Service
+      and Privacy Policy.
     </p>
-    <a class="button" href="#projects">Explore Projects</a>
+
   </div>
-</header>
 
-<section id="about">
-  <h2>About Zephyr</h2>
-  <p class="intro">
-    We are an architecture and design studio focused on creating
-    thoughtful homes and contemporary spaces. Our approach combines
-    clean design, functionality and timeless architecture.
-  </p>
-</section>
+  <script>
 
-<section id="services">
-  <h2>Our Services</h2>
+    function showLogin() {
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("signupForm").style.display = "none";
 
-  <div class="cards">
-    <div class="card">
-      <h3>House Plans</h3>
-      <p>Modern residential plans designed for comfort and functionality.</p>
-    </div>
+      document.getElementById("loginTab").classList.add("active");
+      document.getElementById("signupTab").classList.remove("active");
+    }
 
-    <div class="card">
-      <h3>3D Design</h3>
-      <p>Visualize your dream home before construction begins.</p>
-    </div>
+    function showSignup() {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
 
-    <div class="card">
-      <h3>Interior Design</h3>
-      <p>Beautiful interiors that match your lifestyle and personality.</p>
-    </div>
+      document.getElementById("loginTab").classList.remove("active");
+      document.getElementById("signupTab").classList.add("active");
+    }
 
-    <div class="card">
-      <h3>Consultation</h3>
-      <p>Professional guidance from concept to completion.</p>
-    </div>
-  </div>
-</section>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Login system will be connected to the database next.");
+    });
 
-<section class="projects" id="projects">
-  <h2>Featured Projects</h2>
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Account creation will be connected to the database next.");
+    });
 
-  <div class="cards">
-    <div class="card">
-      <h3>Modern 3-Bedroom</h3>
-      <p>Elegant family home with open-plan living spaces.</p>
-    </div>
+  </script>
 
-    <div class="card">
-      <h3>Luxury 4-Bedroom</h3>
-      <p>A spacious contemporary home designed for modern living.</p>
-    </div>
-
-    <div class="card">
-      <h3>Compact 2-Bedroom</h3>
-      <p>Smart use of space for comfortable and affordable living.</p>
-    </div>
-
-    <div class="card">
-      <h3>Contemporary Bungalow</h3>
-      <p>A stylish single-storey home with a clean modern aesthetic.</p>
-    </div>
-  </div>
-</section>
-<section id="plans" style="padding:80px 8%; background:#181818;">
-  <h2>Floor Plans, Sections & 3D Models</h2>
-  <p style="color:#bbb; margin-bottom:35px;">
-    Explore our collection of modern and functional architectural designs.
-  </p>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>3 Bedroom Bungalow</h3>
-      <img class="gallery-img" src="your-image.jpg" alt="Floor Plan" onclick="openImage(this.src)">
-           style="width:100%; border-radius:10px;">
-    </div>
-
-    <div class="card">
-      <h3>Multiple House Designs</h3>
-      /* Image viewer */
-.gallery-img {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.gallery-img:hover {
-  opacity: 0.8;
-}
-
-#imageViewer {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-}
-
-#imageViewer img {
-  max-width: 95%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-#closeViewer {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: white;
-  font-size: 45px;
-  cursor: pointer;
-}
-           style="width:100%; border-radius:10px;">
-    </div>
-
-    <div class="card">
-      <h3>Luxury Residential Designs</h3>
-      <img class="gallery-img" src="your-image.jpg" alt="Floor Plan" onclick="openImage(this.src)">"
-           style="width:100%; border-radius:10px;">
-    </div
-  </div>
-      </section>
-<section class="contact" id="contact">
-  <h2>Let's Build Your Vision</h2>
-  <p>Have a project in mind? Get in touch with Zephyr Architecture.</p>
-  <a class="button" href="mailto:zephyrarchitecture@gmail.com">
-    Contact Us
-  </a>
-</section>
-
-<section class="contact" id="contact">
-  <h2>Let's Build Your Vision</h2>
-  <p>Have a project in mind? Get in touch with Zephyr Architecture.</p>
-
-  <a class="button" href="https://wa.me/256701633319" target="_blank">
-    💬 WhatsApp Us: 0701633319
-  </a>
-
-  <br><br>
-
-  <a class="button" href="tel:+256772462264">
-    📞 Call: 0772462264
-  </a>
-</section>
-
-<footer>
-  © 2026 Zephyr Architecture. All rights reserved.
-</footer>
-<div id="imageViewer" onclick="closeImage()">
-  <span id="closeViewer">&times;</span>
-  <img id="largeImage" src="" alt="Large image">
-</div>
-
-<script>
-function openImage(src) {
-  document.getElementById("largeImage").src = src;
-  document.getElementById("imageViewer").style.display = "flex";
-}
-
-function closeImage() {
-  document.getElementById("imageViewer").style.display = "none";
-}
-</script>
 </body>
 </html>
