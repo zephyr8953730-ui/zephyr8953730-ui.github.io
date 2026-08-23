@@ -320,23 +320,129 @@ Explore our architectural designs and floor plans.
 
 <div class="products">
 
-<div class="product">
+    <div class="product">
 
-<img src="file_000000001c5881f4929a76e40fac931e.png">
+        <img src="file_000000001c5881f4929a76e40fac931e.png"
+             onclick="openImage(this.src)">
 
-<div class="product-info">
+        <div class="product-info">
 
-<h3>3 Bedroom Bungalow</h3>
+            <span class="product-category">
+                RESIDENTIAL DESIGN
+            </span>
 
-<p>
-Modern 3 bedroom bungalow with floor plan,
-roof plan, front elevation and building section.
-</p>
+            <h3>3 Bedroom Bungalow</h3>
+
+            <p>
+                A modern 3 bedroom bungalow design featuring
+                a practical floor plan, roof plan, elevations
+                and building section.
+            </p>
+
+            <div class="product-buttons">
+
+                <button
+                    class="view-button"
+                    onclick="openImage('file_000000001c5881f4929a76e40fac931e.png')">
+                    VIEW DESIGN
+                </button>
+
+                <a
+                    class="order-button"
+                    href="https://wa.me/256701633319?text=Hello%20Zephyr%20Architecture,%20I%20am%20interested%20in%20the%203%20Bedroom%20Bungalow%20design."
+                    target="_blank">
+                    ENQUIRE
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <img src="file_0000000035bc81f49e6bda68105fc37f.png"
+             onclick="openImage(this.src)">
+
+        <div class="product-info">
+
+            <span class="product-category">
+                ARCHITECTURAL PLANS
+            </span>
+
+            <h3>Floor Plans & 3D Models</h3>
+
+            <p>
+                A collection of architectural floor plans,
+                sections and detailed 3D models for modern
+                residential projects.
+            </p>
+
+            <div class="product-buttons">
+
+                <button
+                    class="view-button"
+                    onclick="openImage('file_0000000035bc81f49e6bda68105fc37f.png')">
+                    VIEW DESIGN
+                </button>
+
+                <a
+                    class="order-button"
+                    href="https://wa.me/256701633319?text=Hello%20Zephyr%20Architecture,%20I%20am%20interested%20in%20the%20Floor%20Plans%20and%203D%20Models."
+                    target="_blank">
+                    ENQUIRE
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <img src="file_00000000418c820ab0e28007a0cd2d26.png"
+             onclick="openImage(this.src)">
+
+        <div class="product-info">
+
+            <span class="product-category">
+                HOUSE DESIGNS
+            </span>
+
+            <h3>House Design Collection</h3>
+
+            <p>
+                A selection of beautiful architectural house
+                designs including modern homes, bungalows
+                and double-storey concepts.
+            </p>
+
+            <div class="product-buttons">
+
+                <button
+                    class="view-button"
+                    onclick="openImage('file_00000000418c820ab0e28007a0cd2d26.png')">
+                    VIEW DESIGN
+                </button>
+
+                <a
+                    class="order-button"
+                    href="https://wa.me/256701633319?text=Hello%20Zephyr%20Architecture,%20I%20am%20interested%20in the%20House%20Design%20Collection."
+                    target="_blank">
+                    ENQUIRE
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
 
 <div class="product">
 
@@ -384,7 +490,7 @@ bungalows, double-storey homes and more.
 
 </div>
 
-<style>
+<style>y,ß
 .back-button{
     display:inline-block;
     margin-bottom:30px;
@@ -497,6 +603,53 @@ bungalows, double-storey homes and more.
 
 .whatsapp-button:hover{
     background:white;
+}
+.product-category{
+    display:block;
+    color:#b48b3c;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.product-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.view-button,
+.order-button{
+    padding:11px 15px;
+    border-radius:5px;
+    font-weight:bold;
+    font-size:12px;
+    text-decoration:none;
+    cursor:pointer;
+}
+
+.view-button{
+    border:1px solid #061d33;
+    background:#061d33;
+    color:white;
+}
+
+.order-button{
+    background:#d2a85b;
+    color:#061d33;
+    border:1px solid #d2a85b;
+}
+
+.view-button:hover{
+    background:#d2a85b;
+    color:#061d33;
+}
+
+.order-button:hover{
+    background:#061d33;
+    color:white;
 }
 </style>
 
