@@ -140,6 +140,11 @@ nav a:hover{
     height:230px;
     object-fit:cover;
     display:block;
+    cursor:pointer;
+}
+  
+    
+
 }
 
 .product-info{
@@ -233,11 +238,126 @@ Explore our architectural designs and floor plans.
 
 <div class="products">
 
-<!-- PRODUCTS WILL BE ADDED HERE -->
+<div class="product">
+
+<img src="file_000000001c5881f4929a76e40fac931e.png">
+
+<div class="product-info">
+
+<h3>3 Bedroom Bungalow</h3>
+
+<p>
+Modern 3 bedroom bungalow with floor plan,
+roof plan, front elevation and building section.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="file_0000000035bc81f49e6bda68105fc37f.png">
+
+<div class="product-info">
+
+<h3>Floor Plans & 3D Models</h3>
+
+<p>
+A collection of modern house floor plans,
+sections and 3D architectural models.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="product">
+
+<img src="file_00000000418c820ab0e28007a0cd2d26.png">
+
+<div class="product-info">
+
+<h3>House Design Collection</h3>
+
+<p>
+Beautiful architectural designs including
+bungalows, double-storey homes and more.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
+<div id="imageViewer" onclick="closeImage()">
 
+<span onclick="closeImage()">×</span>
+
+<img id="bigImage" src="">
+
+</div>
+
+<style>
+
+#imageViewer{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+#imageViewer img{
+    max-width:95%;
+    max-height:90%;
+    object-fit:contain;
+}
+
+#imageViewer span{
+    position:absolute;
+    top:15px;
+    right:25px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+}
+
+</style>
+
+<script>
+
+const images = document.querySelectorAll(".product img");
+
+images.forEach(function(image){
+
+    image.onclick = function(){
+
+        document.getElementById("bigImage").src = this.src;
+
+        document.getElementById("imageViewer").style.display = "flex";
+
+    };
+
+});
+
+
+function closeImage(){
+
+    document.getElementById("imageViewer").style.display = "none";
+
+}
+
+</script>
 </body>
 </html>
