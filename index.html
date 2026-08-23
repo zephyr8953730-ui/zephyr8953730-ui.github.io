@@ -104,8 +104,10 @@ nav a:hover{
 /* PRODUCTS */
 
 #products{
-    padding:70px 7%;
+    min-height:100vh;
+    padding:80px 7%;
     background:white;
+};
 }
 
 .title{
@@ -223,7 +225,7 @@ VIEW PRODUCTS
 </section>
 
 
-<section id="products">
+<section id="products"><a href="#home" class="back-button">← BACK TO HOME</a>
 
 <div class="title">
 
@@ -303,7 +305,21 @@ bungalows, double-storey homes and more.
 </div>
 
 <style>
+.back-button{
+    display:inline-block;
+    margin-bottom:30px;
+    padding:11px 18px;
+    background:#061d33;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+}
 
+.back-button:hover{
+    background:#d2a85b;
+    color:#061d33;
+}
 #imageViewer{
     display:none;
     position:fixed;
