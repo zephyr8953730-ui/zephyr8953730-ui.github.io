@@ -258,7 +258,9 @@ ZEPHYR <span>ARCHITECTURE</span>
 
 <nav>
 <a href="#home">HOME</a>
+<a href="#services">SERVICES</a>
 <a href="#products">PRODUCTS</a>
+<a href="#contact">CONTACT</a>
 </nav>
 
 </header>
@@ -305,7 +307,66 @@ GET A QUOTE
 </section>
 
 
-<section id="products"><a href="#home" class="back-button">← BACK TO HOME</a>
+<section id="products"><section id="services">
+
+    <div class="title">
+
+        <p class="services-label">WHAT WE DO</p>
+
+        <h2>Our Services</h2>
+
+        <p>
+            Professional architectural solutions from concept
+            to detailed design.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <div class="service-icon">01</div>
+            <h3>Architectural Design</h3>
+            <p>
+                Creative and functional architectural designs
+                tailored to your needs and lifestyle.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-icon">02</div>
+            <h3>Floor Plans</h3>
+            <p>
+                Detailed floor plans designed for comfortable,
+                practical and efficient spaces.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-icon">03</div>
+            <h3>3D Visualization</h3>
+            <p>
+                Bring your project to life with realistic
+                3D views and architectural visualization.
+            </p>
+        </div>
+
+
+        <div class="service-card">
+            <div class="service-icon">04</div>
+            <h3>Building Plans</h3>
+            <p>
+                Comprehensive building drawings prepared
+                to help turn your concept into reality.
+            </p>
+        </div>
+
+    </div>
+
+</section><a href="#home" class="back-button">← BACK TO HOME</a>
 
 <div class="title">
 
@@ -490,7 +551,60 @@ bungalows, double-storey homes and more.
 
 </div>
 
-<style>y,ß
+<style>
+#services{
+    padding:90px 7%;
+    background:#f5f5f5;
+}
+
+.services-label{
+    color:#b48b3c;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.service-card{
+    background:white;
+    padding:30px 25px;
+    border-radius:8px;
+    border-top:3px solid #d2a85b;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    transition:0.25s;
+}
+
+.service-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.14);
+}
+
+.service-icon{
+    color:#d2a85b;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:20px;
+}
+
+.service-card h3{
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#666;
+    line-height:1.6;
+}
+,ß
 .back-button{
     display:inline-block;
     margin-bottom:30px;
